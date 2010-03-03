@@ -1,14 +1,14 @@
 source 'http://gemcutter.org'
 
-gem 'rails', '3.0.0.beta1'
+#gem 'rails', '3.0.0.beta1'
 
 # Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
+gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3-ruby', :require => 'sqlite3'
 
 # Use mongrel as the web server
-# gem 'mongrel'
+gem 'mongrel'
 
 # Deploy with Capistrano
 # gem 'capistrano'
@@ -24,3 +24,8 @@ gem 'sqlite3-ruby', :require => 'sqlite3'
 # group :test do
 #   gem 'webrat'
 # end
+
+# cucumber
+gem 'capybara'
+gem 'database_cleaner'
+gem 'cucumber-rails'
