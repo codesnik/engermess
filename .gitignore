@@ -5,3 +5,6 @@ tmp/**/*
 
 #cucumber
 rerun.txt
+
+# some other helpers
+.rake_tasks
