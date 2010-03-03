@@ -1,4 +1,6 @@
 Engermess::Application.routes.draw do |map|
+  resources :users
+
   resources :chats
 
   # The priority is based upon order of creation:
