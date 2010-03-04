@@ -2,6 +2,13 @@ Given /^the following chats:$/ do |chats|
   Chat.create!(chats.hashes)
 end
 
+Given /^(.*) participates? in the following chats:$/ do |user_name, chats|
+  user = User.find_or_create_by_name(user_name)
+  chats.hashes.each do |attrs|
+    user.chats.create!(attrs)
+  end
+end
+
 When /^I delete the (\d+)(?:st|nd|rd|th) chat$/ do |pos|
   visit chats_url
   within("table tr:nth-child(#{pos.to_i+1})") do
