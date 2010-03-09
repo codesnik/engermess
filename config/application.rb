@@ -38,5 +38,9 @@ module Engermess
 
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters << :password
+
+    config.session_store :cookie_store, :key => '_engermess_session'
+    config.cookie_secret = 'e1ffac1949a8133ce687116197ceaf11af07221db295f75897e2af935ccbec96b0c2ac553eb2231746e36349d563e3d818995424cca7bd18319794c312bbd14e'
+
   end
 end
