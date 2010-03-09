@@ -1,4 +1,6 @@
 Engermess::Application.routes.draw do |map|
+  resources :messages
+
   resources :users
 
   resources :chats
