@@ -3,6 +3,11 @@
   <%= @chat.subject %>
 </p>
 
+<p>
+  <b>Messages:</b>
+  <%= render @chat.messages %>
+</p>
 
+<%= link_to 'New message', new_chat_message_path(@chat) %> |
 <%= link_to 'Edit', edit_chat_path(@chat) %> |
 <%= link_to 'Back', chats_path %>
