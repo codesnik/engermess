@@ -92,4 +92,12 @@ class ChatsControllerTest < ActionController::TestCase
 
     assert_redirected_to chats_path
   end
+
+
+
+  test "should not show other chats on index" do
+    login_as(users(:one))
+    get :index
+    assert !assigns(:chats).include?(chats(:three))
+  end
 end

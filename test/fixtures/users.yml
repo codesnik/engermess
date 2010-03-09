@@ -1,7 +1,10 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 one:
-  name: I
+  name: One
 
 two:
-  name: Vasya
+  name: Two
+
+three:
+  name: Three

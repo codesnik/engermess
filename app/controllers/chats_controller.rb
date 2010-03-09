@@ -4,7 +4,7 @@ class ChatsController < ApplicationController
 
   # GET /chats
   def index
-    @chats = Chat.all
+    @chats = current_user.chats.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -22,7 +22,7 @@ class ChatsController < ApplicationController
 
   # GET /chats/new
   def new
-    @chat = Chat.new
+    @chat = current_user.chats.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -36,7 +36,7 @@ class ChatsController < ApplicationController
 
   # POST /chats
   def create
-    @chat = Chat.new(params[:chat])
+    @chat = current_user.chats.new(params[:chat])
 
     respond_to do |format|
       if @chat.save

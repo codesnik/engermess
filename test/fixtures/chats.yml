@@ -1,7 +1,10 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 one:
-  subject: MyString
+  subject: First Chat
 
 two:
-  subject: MyString
+  subject: Second Chat
+
+three:
+  subject: Third Chat

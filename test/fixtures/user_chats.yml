@@ -1,9 +1,26 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
-one:
+1:
   user: one
   chat: one
 
-two:
+2:
+  user: two
+  chat: one
+
+
+3:
+  user: one
+  chat: two
+
+4:
   user: two
   chat: two
+
+5:
+  user: two
+  chat: three
+
+6:
+  user: three
+  chat: three
