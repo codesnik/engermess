@@ -1,4 +1,7 @@
 class ChatsController < ApplicationController
+
+  before_filter :require_auth
+
   # GET /chats
   def index
     @chats = Chat.all
