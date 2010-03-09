@@ -8,3 +8,7 @@ rerun.txt
 
 # some other helpers
 .rake_tasks
+
+# vim
+*.swp
+*.swo
