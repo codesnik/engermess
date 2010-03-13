@@ -23,6 +23,7 @@ class ChatsController < ApplicationController
   # GET /chats/new
   def new
     @chat = current_user.chats.new
+    @message = @chat.messages.build
 
     respond_to do |format|
       format.html # new.html.erb
@@ -37,6 +38,8 @@ class ChatsController < ApplicationController
   # POST /chats
   def create
     @chat = current_user.chats.new(params[:chat])
+    @message = @chat.messages.build(params[:message])
+    @message.author = current_user
 
     respond_to do |format|
       if @chat.save

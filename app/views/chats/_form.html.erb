@@ -5,6 +5,11 @@
     <%= f.label :subject %><br />
     <%= f.text_field :subject %>
   </div>
+
+  <% fields_for(:message) do |message_form| %>
+    <%= render 'messages/form', :form => message_form %>
+  <% end %>
+
   <div class="actions">
     <%= f.submit %>
   </div>

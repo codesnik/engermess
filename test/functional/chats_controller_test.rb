@@ -14,7 +14,7 @@ class ChatsControllerTest < ActionController::TestCase
 
   test "should not create chat" do
     assert_difference('Chat.count', 0) do
-      post :create, :chat => chats(:one).attributes
+      post :create, :chat => {:subject => 'foobar'}
     end
     assert_redirected_to users_path
   end
@@ -30,7 +30,7 @@ class ChatsControllerTest < ActionController::TestCase
   end
 
   test "should not update chat" do
-    put :update, :id => chats(:one).to_param, :chat => chats(:one).attributes
+    put :update, :id => chats(:one).to_param, :chat => {:subject => 'foobar'}
     assert_redirected_to users_path
   end
 
@@ -57,10 +57,10 @@ class ChatsControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should create chat" do
+  test "should create chat with message" do
     login_as(users(:one))
-    assert_difference('Chat.count') do
-      post :create, :chat => chats(:one).attributes
+    assert_difference('Message.count') do
+      post :create, :chat => {:subject => 'foobar'}, :message => {:body => 'test'}
     end
 
     assert_redirected_to chat_path(assigns(:chat))
@@ -80,7 +80,7 @@ class ChatsControllerTest < ActionController::TestCase
 
   test "should update chat" do
     login_as(users(:one))
-    put :update, :id => chats(:one).to_param, :chat => chats(:one).attributes
+    put :update, :id => chats(:one).to_param, :chat => {:subject => 'foobar'}
     assert_redirected_to chat_path(assigns(:chat))
   end
 

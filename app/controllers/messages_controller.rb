@@ -2,6 +2,12 @@ class MessagesController < ApplicationController
 
   before_filter :require_auth
 
+  def new
+    @chat = Chat.find(params[:chat_id])
+    @message = current_user.messages.new(params[:message])
+    @message.chat = @chat
+  end
+
   def create
     @chat = Chat.find(params[:chat_id])
     @message = current_user.messages.new(params[:message])
