@@ -6,8 +6,7 @@ Engermess::Application.routes.draw do |map|
     resources :messages, :only => [:new, :create]
   end
 
-  # The priority is based upon order of creation:
-  # first created -> highest priority.
+  resource :auth, :only => [:create, :destroy]
 
   root :to => 'users#index'
 end

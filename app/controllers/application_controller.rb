@@ -16,10 +16,14 @@ class ApplicationController < ActionController::Base
     session[:user_id] = user ? user.id : nil
   end
 
+  def logout
+    @current_user = session[:user_id] = nil
+  end
+
   # filters
   def require_auth
     unless current_user
-      redirect_to users_path, :alert => 'требуется аутентификация'
+      redirect_to users_path, :alert => 'Auth required'
     end
   end
 
