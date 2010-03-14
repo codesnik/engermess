@@ -57,6 +57,15 @@ class ChatsControllerTest < ActionController::TestCase
     assert_response :success
   end
 
+  test "should create chat" do
+    login_as(users(:one))
+    assert_difference('users(:one).chats.count') do
+      post :create, :chat => {:subject => 'foobar'}, :message => {:body => 'test'}
+    end
+
+    assert_redirected_to chat_path(assigns(:chat))
+  end
+
   test "should create chat with message" do
     login_as(users(:one))
     assert_difference('Message.count') do
