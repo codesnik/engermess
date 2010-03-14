@@ -2,6 +2,14 @@ require 'test_helper'
 
 class ChatsControllerTest < ActionController::TestCase
 
+  def valid_chat_attrs
+    {
+      :chat => {:subject => 'foobar'},
+      :message => {:body => 'bodybaz'},
+      :recepient_id => users(:two).to_param
+    }
+  end
+
   test "should not get index" do
     get :index
     assert_redirected_to users_path
@@ -14,7 +22,7 @@ class ChatsControllerTest < ActionController::TestCase
 
   test "should not create chat" do
     assert_difference('Chat.count', 0) do
-      post :create, :chat => {:subject => 'foobar'}
+      post :create, valid_chat_attrs
     end
     assert_redirected_to users_path
   end
@@ -30,7 +38,7 @@ class ChatsControllerTest < ActionController::TestCase
   end
 
   test "should not update chat" do
-    put :update, :id => chats(:one).to_param, :chat => {:subject => 'foobar'}
+    put :update, valid_chat_attrs.merge(:id => chats(:one).to_param)
     assert_redirected_to users_path
   end
 
@@ -60,7 +68,7 @@ class ChatsControllerTest < ActionController::TestCase
   test "should create chat" do
     login_as(users(:one))
     assert_difference('users(:one).chats.count') do
-      post :create, :chat => {:subject => 'foobar'}, :message => {:body => 'test'}
+      post :create, valid_chat_attrs
     end
 
     assert_redirected_to chat_path(assigns(:chat))
@@ -69,7 +77,7 @@ class ChatsControllerTest < ActionController::TestCase
   test "should create chat with message" do
     login_as(users(:one))
     assert_difference('Message.count') do
-      post :create, :chat => {:subject => 'foobar'}, :message => {:body => 'test'}
+      post :create, valid_chat_attrs
     end
 
     assert_redirected_to chat_path(assigns(:chat))
@@ -89,7 +97,7 @@ class ChatsControllerTest < ActionController::TestCase
 
   test "should update chat" do
     login_as(users(:one))
-    put :update, :id => chats(:one).to_param, :chat => {:subject => 'foobar'}
+    put :update, valid_chat_attrs.merge(:id => chats(:one).to_param)
     assert_redirected_to chat_path(assigns(:chat))
   end
 
@@ -102,7 +110,11 @@ class ChatsControllerTest < ActionController::TestCase
     assert_redirected_to chats_path
   end
 
-
+  test "should show my chats on index" do
+    login_as(users(:one))
+    get :index
+    assert assigns(:chats).include?(chats(:one))
+  end
 
   test "should not show other chats on index" do
     login_as(users(:one))
