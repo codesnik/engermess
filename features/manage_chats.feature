@@ -3,9 +3,14 @@ Feature: Manage chats
   I, Codesnik
   want to create something like moikrug.ru messaging
 
+  Background:
+    Given user I registered
+    Given I am logged in
+
   Scenario: Create new chat
     Given I am on the new chat page
     When I fill in "Subject" with "subject 1"
+    When I fill in "Body" with "blablabla"
     And I press "Create"
     Then I should see "subject 1"
 
@@ -31,6 +36,7 @@ Feature: Manage chats
       |subject 2|
       |subject 3|
       |subject 4|
+    And I am on the chat index page
     When I delete the 3rd chat
     Then I should see the following chats:
       |Subject|

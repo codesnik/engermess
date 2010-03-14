@@ -10,7 +10,6 @@ Given /^(.*) participates? in the following chats:$/ do |user_name, chats|
 end
 
 When /^I delete the (\d+)(?:st|nd|rd|th) chat$/ do |pos|
-  visit chats_url
   within("table tr:nth-child(#{pos.to_i+1})") do
     click_link "Destroy"
   end

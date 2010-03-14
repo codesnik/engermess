@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   # заглушка для эмуляции авторизованности
   def current_user
     @current_user ||= if session[:user_id]
-      User.find(session[:user_id])
+      User.find_by_id(session[:user_id])
     end
   end
   helper_method :current_user

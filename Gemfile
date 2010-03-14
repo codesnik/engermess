@@ -26,6 +26,13 @@ gem 'mongrel'
 # end
 
 # cucumber
-gem 'capybara'
-gem 'database_cleaner'
-gem 'cucumber-rails'
+group :test do
+  gem 'capybara'
+  #gem 'database_cleaner'
+  gem 'cucumber-rails'
+end
+
+group :other do
+  gem 'open_gem'
+  gem 'ruby-debug'
+end
