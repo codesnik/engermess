@@ -8,8 +8,6 @@
   <tr>
     <th>Participants</th>
     <th>Subject</th>
-    <th>Message</th>
-    <th></th>
     <th></th>
     <th></th>
   </tr>
@@ -17,9 +15,8 @@
 <% @chats.each do |chat| %>
   <tr>
     <td><%= chat_users(chat) %></td>
-    <td><%= chat.subject %></td>
-    <td><%= chat_digest(chat) %></td>
-    <td><%= link_to 'Show', chat %></td>
+    <td><%= link_to chat.subject, chat %></td>
+    <td><%= link_to chat_digest(chat), chat %></td>
     <td><%= link_to 'Destroy', chat, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>

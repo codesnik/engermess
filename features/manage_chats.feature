@@ -37,7 +37,7 @@ Feature: Manage chats
     And I am on the chat index page
     Then I should see "subject 2"
 
-    When I follow "Show"
+    When I follow "subject 2"
     And I fill in "Body" with "blablabla, indeed"
     And I press "Create"
     And I should see "Message was successfully created." within "#flash"
