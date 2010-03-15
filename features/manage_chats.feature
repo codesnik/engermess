@@ -14,6 +14,17 @@ Feature: Manage chats
     And I press "Create"
     Then I should see "subject 1"
 
+  Scenario: Initiate chat with a peer
+    Given user Vasya registered
+    Given I am on the new chat page
+    When I fill in "Subject" with "subject 2"
+    And I fill in "Body" with "blablabla"
+    And I select "Vasya" from "Recipient"
+    And I press "Create"
+    And I am logged in as Vasya
+    And I am on the chat index page
+    Then I should see "subject 2"
+
   Scenario: Display chats
     Given Alexey participates in the following chats:
       |subject|

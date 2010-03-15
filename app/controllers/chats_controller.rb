@@ -38,8 +38,9 @@ class ChatsController < ApplicationController
   # POST /chats
   def create
     @chat = Chat.new(params[:chat])
-    @chat.users << current_user
     @message = @chat.messages.build(params[:message])
+    @recipient = User.find_by_id(params[:recipient])
+    @chat.users = current_user, @recipient
     @message.author = current_user
 
     respond_to do |format|

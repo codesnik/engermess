@@ -2,6 +2,11 @@
   <%= f.error_messages %>
 
   <div class="field">
+    <%= label_tag :recipient %><br />
+    <%= select_tag :recipient, recipient_options_for_select %>
+  </div>
+
+  <div class="field">
     <%= f.label :subject %><br />
     <%= f.text_field :subject %>
   </div>

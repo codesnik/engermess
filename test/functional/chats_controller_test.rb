@@ -6,7 +6,7 @@ class ChatsControllerTest < ActionController::TestCase
     {
       :chat => {:subject => 'foobar'},
       :message => {:body => 'bodybaz'},
-      :recepient_id => users(:two).to_param
+      :recipient => users(:two).to_param
     }
   end
 
