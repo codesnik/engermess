@@ -1,6 +1,7 @@
 class Chat < ActiveRecord::Base
   has_many :user_chats
   has_many :users, :through => :user_chats
+  has_many :parted_users, :through => :user_chats, :conditions => "user_chats.parted_at is not null", :source => :user
   has_many :messages
 
   accepts_nested_attributes_for :messages

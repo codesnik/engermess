@@ -7,6 +7,10 @@ module ChatsHelper
     chat.users.map {|user| user.name}.join(', ')
   end
 
+  def parted_chat_users(chat)
+    chat.parted_users.map {|user| user.name}.join(', ')
+  end
+
   def chat_digest(chat)
     if chat.messages.present?
       truncate(chat.messages.last.body.squish, :length => 20)

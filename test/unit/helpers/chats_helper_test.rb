@@ -15,4 +15,12 @@ class ChatsHelperTest < ActionView::TestCase
 
     assert_equal chat_users(@chat), "#{users(:two).name}, #{users(:one).name}"
   end
+
+  test "parted_chat_users should show parted users" do
+    @chat = Chat.create! :subject => 'foobar'
+    @chat.users = users(:one), users(:two)
+    @chat.part_by(users(:two))
+
+    assert_equal parted_chat_users(@chat), "#{users(:two).name}"
+  end
 end

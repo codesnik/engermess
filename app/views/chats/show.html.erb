@@ -3,6 +3,12 @@
   <b>Participants:</b>
   <%= chat_users(@chat) %>
 </p>
+<% if @chat.parted_users.present? %>
+  <p>
+    <b>Parted:</b>
+    <%= parted_chat_users(@chat) %>
+  </p>
+<% end %>
 <p>
   <b>Subject:</b>
   <%= @chat.subject %>
