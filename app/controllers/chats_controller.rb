@@ -67,7 +67,7 @@ class ChatsController < ApplicationController
   # DELETE /chats/1
   def destroy
     @chat = Chat.find(params[:id])
-    @chat.destroy
+    @chat.part_by(current_user)
 
     respond_to do |format|
       format.html { redirect_to(chats_url) }

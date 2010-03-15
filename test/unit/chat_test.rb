@@ -13,4 +13,11 @@ class ChatTest < ActiveSupport::TestCase
       Chat.create! :subject => nil
     end
   end
+
+  test "part_by should remove chat from collection" do
+    chat = chats(:one)
+    user = chat.users.first
+    chat.part_by(user)
+    assert !user.chats(true).include?(chat)
+  end
 end

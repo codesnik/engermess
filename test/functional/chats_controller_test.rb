@@ -101,10 +101,12 @@ class ChatsControllerTest < ActionController::TestCase
     assert_redirected_to chat_path(assigns(:chat))
   end
 
-  test "should destroy chat" do
+  test "should part chat on destroy" do
     login_as(users(:one))
-    assert_difference('Chat.count', -1) do
-      delete :destroy, :id => chats(:one).to_param
+    assert_difference('Chat.count', 0) do
+      assert_difference('users(:one).chats.count', -1) do
+        delete :destroy, :id => chats(:one).to_param
+      end
     end
 
     assert_redirected_to chats_path
