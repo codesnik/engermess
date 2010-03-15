@@ -25,6 +25,24 @@ Feature: Manage chats
     And I am on the chat index page
     Then I should see "subject 2"
 
+  Scenario: Reply to a chat
+    # TODO dry it
+    Given user Vasya registered
+    Given I am on the new chat page
+    When I fill in "Subject" with "subject 2"
+    And I fill in "Body" with "blablabla"
+    And I select "Vasya" from "Recipient"
+    And I press "Create"
+    And I am logged in as Vasya
+    And I am on the chat index page
+    Then I should see "subject 2"
+
+    When I follow "Show"
+    And I fill in "Body" with "blablabla, indeed"
+    And I press "Create"
+    And I should see "Message was successfully created." within "#flash"
+    Then I should see "blablabla, indeed"
+
   Scenario: Display chats
     Given Alexey participates in the following chats:
       |subject|

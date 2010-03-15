@@ -13,3 +13,15 @@
   <%= render @chat.messages %>
 </p>
 
+<p>
+  <b>Reply</b>
+<% form_for @chat.messages.new, :url => chat_messages_path(@chat) do |f| %>
+  <%= f.error_messages %>
+
+  <%= render 'messages/form', :form => f %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+</p>
