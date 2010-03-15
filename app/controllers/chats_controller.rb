@@ -30,11 +30,6 @@ class ChatsController < ApplicationController
     end
   end
 
-  # GET /chats/1/edit
-  def edit
-    @chat = Chat.find(params[:id])
-  end
-
   # POST /chats
   def create
     @chat = Chat.new(params[:chat])
@@ -48,19 +43,6 @@ class ChatsController < ApplicationController
         format.html { redirect_to(@chat, :notice => 'Chat was successfully created.') }
       else
         format.html { render :action => "new" }
-      end
-    end
-  end
-
-  # PUT /chats/1
-  def update
-    @chat = Chat.find(params[:id])
-
-    respond_to do |format|
-      if @chat.update_attributes(params[:chat])
-        format.html { redirect_to(@chat, :notice => 'Chat was successfully updated.') }
-      else
-        format.html { render :action => "edit" }
       end
     end
   end

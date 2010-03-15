@@ -1,3 +1,4 @@
+<%= link_to 'Back', chats_path %>
 <p>
   <b>Participants:</b>
   <%= chat_users(@chat) %>
@@ -12,6 +13,3 @@
   <%= render @chat.messages %>
 </p>
 
-<%= link_to 'New message', new_chat_message_path(@chat) %> |
-<%= link_to 'Edit', edit_chat_path(@chat) %> |
-<%= link_to 'Back', chats_path %>

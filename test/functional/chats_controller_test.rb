@@ -32,16 +32,6 @@ class ChatsControllerTest < ActionController::TestCase
     assert_redirected_to users_path
   end
 
-  test "should not get edit" do
-    get :edit, :id => chats(:one).to_param
-    assert_redirected_to users_path
-  end
-
-  test "should not update chat" do
-    put :update, valid_chat_attrs.merge(:id => chats(:one).to_param)
-    assert_redirected_to users_path
-  end
-
   test "should not destroy chat" do
     assert_difference('Chat.count', 0) do
       delete :destroy, :id => chats(:one).to_param
@@ -87,18 +77,6 @@ class ChatsControllerTest < ActionController::TestCase
     login_as(users(:one))
     get :show, :id => chats(:one).to_param
     assert_response :success
-  end
-
-  test "should get edit" do
-    login_as(users(:one))
-    get :edit, :id => chats(:one).to_param
-    assert_response :success
-  end
-
-  test "should update chat" do
-    login_as(users(:one))
-    put :update, valid_chat_attrs.merge(:id => chats(:one).to_param)
-    assert_redirected_to chat_path(assigns(:chat))
   end
 
   test "should part chat on destroy" do
