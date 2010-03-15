@@ -2,8 +2,7 @@
   <%= f.error_messages %>
 
   <div class="field">
-    <%= label_tag :recipient %><br />
-    <%= select_tag :recipient, recipient_options_for_select(@recipient) %>
+    <%= label_tag :user_id, 'Recipient' %> <%= select_tag :user_id, recipient_options_for_select(@user_id) %>
   </div>
 
   <div class="field">

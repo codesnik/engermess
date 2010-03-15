@@ -2,7 +2,7 @@ module ChatsHelper
   def recipient_options_for_select(selected_recipient=nil)
     options_from_collection_for_select(
       User.all - [current_user], :to_param, :name,
-      (selected_recipient && selected_recipient.to_param)
+      selected_recipient
     )
   end
 
