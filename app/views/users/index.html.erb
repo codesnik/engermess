@@ -10,9 +10,9 @@
 
 <% @users.each do |user| %>
   <tr>
-    <td><%= user.name %></td>
+    <td><%= link_to user.name, user %></td>
     <td><%= link_to 'Login', auth_path(:id => user.id), :method => :post %></td>
-    <td><%= link_to 'Show', user %></td>
+    <td><%= link_to 'Send message', new_user_chat_path(user) %></td>
     <td><%= link_to 'Edit', edit_user_path(user) %></td>
     <td><%= link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>

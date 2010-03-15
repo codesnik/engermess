@@ -3,7 +3,7 @@
 
   <div class="field">
     <%= label_tag :recipient %><br />
-    <%= select_tag :recipient, recipient_options_for_select %>
+    <%= select_tag :recipient, recipient_options_for_select(@recipient) %>
   </div>
 
   <div class="field">

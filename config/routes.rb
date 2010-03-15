@@ -1,6 +1,8 @@
 Engermess::Application.routes.draw do |map|
 
-  resources :users
+  resources :users do
+    resources :chats, :only => [:new]
+  end
 
   resources :chats, :except => [:edit, :update] do
     resources :messages, :only => [:create]

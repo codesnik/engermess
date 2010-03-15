@@ -16,6 +16,9 @@ module NavigationHelpers
     when /the chat index page/
       chats_path
 
+    when /the user index page/
+      users_path
+
     
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:

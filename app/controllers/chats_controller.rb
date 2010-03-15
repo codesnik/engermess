@@ -24,6 +24,7 @@ class ChatsController < ApplicationController
   def new
     @chat = Chat.new
     @message = @chat.messages.build
+    @recipient = User.find_by_id(params[:user_id] || params[:recipient])
 
     respond_to do |format|
       format.html # new.html.erb

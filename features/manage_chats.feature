@@ -5,18 +5,19 @@ Feature: Manage chats
 
   Background:
     Given user Alexey registered
-    Given I am logged in as Alexey
+    And I am logged in as Alexey
 
   Scenario: Create new chat
     Given I am on the new chat page
     When I fill in "Subject" with "subject 1"
-    When I fill in "Body" with "blablabla"
+    And I fill in "Body" with "blablabla"
     And I press "Create"
     Then I should see "subject 1"
 
+
   Scenario: Initiate chat with a peer
     Given user Vasya registered
-    Given I am on the new chat page
+    And I am on the new chat page
     When I fill in "Subject" with "subject 2"
     And I fill in "Body" with "blablabla"
     And I select "Vasya" from "Recipient"
@@ -25,10 +26,23 @@ Feature: Manage chats
     And I am on the chat index page
     Then I should see "subject 2"
 
+  Scenario: Initiate chat from peer's profile
+    # Dry it up too
+    Given user Vasya registered
+    And I am on the user index page
+    And I follow "Vasya"
+    And I follow "Send message"
+    When I fill in "Subject" with "subject 3"
+    And I fill in "Body" with "blablabla"
+    And I press "Create"
+    And I am logged in as Vasya
+    And I am on the chat index page
+    Then I should see "subject 3"
+
   Scenario: Reply to a chat
     # TODO dry it
     Given user Vasya registered
-    Given I am on the new chat page
+    And I am on the new chat page
     When I fill in "Subject" with "subject 2"
     And I fill in "Body" with "blablabla"
     And I select "Vasya" from "Recipient"
