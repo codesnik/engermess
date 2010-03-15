@@ -4,11 +4,11 @@ module ChatsHelper
   end
 
   def chat_users(chat)
-    chat.users.map {|user| user.name}.join(', ')
+    chat.users.map {|user| link_to_user(user)}.join(', ').html_safe
   end
 
   def parted_chat_users(chat)
-    chat.parted_users.map {|user| user.name}.join(', ')
+    chat.parted_users.map {|user| link_to_user(user)}.join(', ').html_safe
   end
 
   def chat_digest(chat)
@@ -17,5 +17,9 @@ module ChatsHelper
     else
       '&mdash;'.html_safe
     end
+  end
+
+  def link_to_user(user)
+    user == current_user ? 'You' : link_to(user.name, user_path(user))
   end
 end
