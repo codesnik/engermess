@@ -4,8 +4,8 @@ Feature: Manage chats
   want to create something like moikrug.ru messaging
 
   Background:
-    Given user I registered
-    Given I am logged in
+    Given user Alexey registered
+    Given I am logged in as Alexey
 
   Scenario: Create new chat
     Given I am on the new chat page
@@ -14,11 +14,12 @@ Feature: Manage chats
     And I press "Create"
     Then I should see "subject 1"
 
-  Scenario: I see only my chats
-    Given I participate in the following chats:
+  Scenario: Display chats
+    Given Alexey participates in the following chats:
       |subject|
       |subject 1|
       |subject 2|
+    And user Vasya registered
     And Vasya participates in the following chats:
       |subject|
       |subject 3|
@@ -30,7 +31,7 @@ Feature: Manage chats
       |subject 2|
 
   Scenario: Delete chat
-    Given I participate in the following chats:
+    Given Alexey participates in the following chats:
       |subject|
       |subject 1|
       |subject 2|
