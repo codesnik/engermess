@@ -8,6 +8,11 @@ div.field, div.actions {
  margin-bottom: 10px;
 }
 
+div.aux {
+ padding-bottom: 10px;
+}
+
+
 h1 {
   text-shadow: 2px 2px 3px #aaa;
 }

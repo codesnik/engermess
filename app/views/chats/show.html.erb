@@ -1,5 +1,7 @@
-<%= link_to 'Back', chats_path %>
-<%= link_to 'Leave chat', @chat, :confirm => 'Are you sure?', :method => :delete %>
+<div class="aux">
+  <%= link_to 'Back', chats_path %> |
+  <%= link_to 'Leave chat', @chat, :confirm => 'Are you sure?', :method => :delete %>
+</div>
 <p>
   <b>Participants:</b>
   <%= chat_users(@chat) %>
