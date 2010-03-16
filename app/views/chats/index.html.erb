@@ -19,6 +19,7 @@
       <td><%= unread_counter_for(chat) %></td>
       <td><%= link_to chat.subject, chat %></td>
       <td><%= link_to chat_digest(chat), chat %></td>
+      <td><%=l chat.updated_at, :format => :short %></td>
     </tr>
   <% end %>
   </table>
