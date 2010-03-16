@@ -58,7 +58,7 @@ Feature: Manage chats
     Then I should see "blablabla, indeed"
 
   Scenario: Display chats
-    Given Alexey participates in the following chats:
+    Given I participate in the following chats:
       |subject|
       |subject 1|
       |subject 2|
@@ -74,7 +74,7 @@ Feature: Manage chats
       |subject 1|
 
   Scenario: Leave chat
-    Given Alexey participates in the following chats:
+    Given I participate in the following chats:
       |subject|
       |subject 1|
       |subject 2|

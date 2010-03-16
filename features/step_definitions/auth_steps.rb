@@ -4,4 +4,5 @@ Given 'I am logged in as $username' do |username|
   within(:xpath, "//tr[td//text()='#{username}']") do
     click 'Login'
   end
+  set_current_username(username)
 end

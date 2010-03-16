@@ -3,7 +3,7 @@ Given /^the following chats:$/ do |chats|
 end
 
 Given /^(.*) participates? in the following chats:$/ do |user_name, chats|
-  user = User.find_by_name!(user_name)
+  user = user_by_name(user_name)
   chats.hashes.each do |attrs|
     user.chats.create!(attrs)
   end
