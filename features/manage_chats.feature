@@ -70,8 +70,8 @@ Feature: Manage chats
     And I am on the chat index page
     Then I should see the following chats:
       |Subject|
-      |subject 1|
       |subject 2|
+      |subject 1|
 
   Scenario: Leave chat
     Given Alexey participates in the following chats:
@@ -85,6 +85,6 @@ Feature: Manage chats
     And I follow "Leave chat"
     Then I should see the following chats:
       |Subject|
-      |subject 1|
-      |subject 2|
       |subject 4|
+      |subject 2|
+      |subject 1|
