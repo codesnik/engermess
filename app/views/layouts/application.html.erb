@@ -15,8 +15,8 @@
 
 <div id="auth">
 <% if current_user %>
-  привет, <%= current_user.name %>!
-  <%= link_to 'выйти', auth_path, :method => :delete %>
+  hello, <%= current_user.name %>!
+  <%= link_to 'logout', auth_path, :method => :delete %>
 <% end %>
 </div>
 

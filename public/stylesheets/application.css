@@ -4,13 +4,20 @@ body {
   font-size: 14px;
 }
 
+div.field, div.actions {
+ margin-bottom: 10px;
+}
+
+h1 {
+  text-shadow: 2px 2px 3px #aaa;
+}
+
 a img {
   border: none;
 }
 
-a {
-  color: #0000FF;
-}
+a { color: #55a; text-decoration: none; border-bottom: 1px dotted #55a }
+a:hover { color: #00a; border-bottom: 1px solid; text-shadow: 0 0 5px #aaf }
 
 .clear {
   clear: both;
@@ -22,9 +29,10 @@ a {
   width: 75%;
   margin: 0 auto;
   background-color: #FFF;
-  padding: 20px 40px;
-  border: solid 1px black;
+  padding: 30px 30px;
   margin-top: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
 }
 
 #auth {
@@ -38,12 +46,18 @@ a {
 
 #flash .notice {
   background-color: #CFC;
-  border: solid 1px #6C6;
+  color: green;
+  /*border: solid 1px #6C6; */
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
 }
 
 #flash .alert {
   background-color: #FCC;
-  border: solid 1px #C66;
+  color: red;
+  /*border: solid 1px #C66; */
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
 }
 
 .excerpt {
@@ -63,6 +77,8 @@ a {
   padding-bottom: 12px;
   margin-bottom: 20px;
   background-color: #f0f0f0;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
 }
 
 #errorExplanation h2 {
@@ -73,6 +89,10 @@ a {
   margin: 0;
   background-color: #c00;
   color: #fff;
+  -webkit-border-top-left-radius: 5px;
+  -webkit-border-top-right-radius: 5px;
+  -moz-border-top-left-radius: 5px;
+  -moz-border-top-right-radius: 5px;
 }
 
 #errorExplanation p {
@@ -93,4 +113,8 @@ a {
 
 .has_new_messages {
   background: #ddf
+}
+
+td, th {
+  padding: 2px 5px
 }
