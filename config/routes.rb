@@ -1,6 +1,6 @@
 Engermess::Application.routes.draw do |map|
 
-  resources :users do
+  resources :users, :except => [:destroy] do
     resources :chats, :only => [:new]
   end
 

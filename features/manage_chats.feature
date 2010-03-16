@@ -73,7 +73,7 @@ Feature: Manage chats
       |subject 1|
       |subject 2|
 
-  Scenario: Delete chat
+  Scenario: Leave chat
     Given Alexey participates in the following chats:
       |subject|
       |subject 1|
@@ -81,7 +81,8 @@ Feature: Manage chats
       |subject 3|
       |subject 4|
     And I am on the chat index page
-    When I delete the 3rd chat
+    When I follow "subject 3"
+    And I follow "Leave chat"
     Then I should see the following chats:
       |Subject|
       |subject 1|

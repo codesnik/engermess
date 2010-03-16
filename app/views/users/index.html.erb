@@ -1,24 +1,29 @@
 <h1>Listing users</h1>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<p>
+  <%= link_to 'New user', new_user_path %>
+</p>
 
-<% @users.each do |user| %>
-  <tr>
-    <td><%= link_to user.name, user %></td>
-    <td><%= link_to 'Login', auth_path(:id => user.id), :method => :post %></td>
-    <td><%= link_to 'Send message', new_user_chat_path(user) %></td>
-    <td><%= link_to 'Edit', edit_user_path(user) %></td>
-    <td><%= link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
+<% if @users.present? %>
+  <table>
+    <tr>
+      <th>Name</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+
+  <% @users.each do |user| %>
+    <tr>
+      <td><%= link_to user.name, user %></td>
+      <td><%= link_to 'Login', auth_path(:id => user.id), :method => :post %></td>
+      <td><%= link_to 'Send message', new_user_chat_path(user) %></td>
+      <td><%= link_to 'Edit', edit_user_path(user) %></td>
+    </tr>
+  <% end %>
+  </table>
+<% else %>
+  <p>
+    There aren't any users yet
+  </p>
 <% end %>
-</table>
-
-<br />
-
-<%= link_to 'New user', new_user_path %>

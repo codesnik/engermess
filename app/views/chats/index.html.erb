@@ -1,23 +1,28 @@
 <h1>Listing chats</h1>
 
-<%= link_to 'New chat', new_chat_path %>
+<p>
+  <%= link_to 'New chat', new_chat_path %>
+</p>
 
-<br />
+<% if @chats.present? %>
+  <table>
+    <tr>
+      <th>Participants</th>
+      <th>Subject</th>
+      <th></th>
+      <th></th>
+    </tr>
 
-<table>
-  <tr>
-    <th>Participants</th>
-    <th>Subject</th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @chats.each do |chat| %>
-  <tr>
-    <td><%= chat_users(chat) %></td>
-    <td><%= link_to chat.subject, chat %></td>
-    <td><%= link_to chat_digest(chat), chat %></td>
-    <td><%= link_to 'Destroy', chat, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
+  <% @chats.each do |chat| %>
+    <tr>
+      <td><%= chat_users(chat) %></td>
+      <td><%= link_to chat.subject, chat %></td>
+      <td><%= link_to chat_digest(chat), chat %></td>
+    </tr>
+  <% end %>
+  </table>
+<% else %>
+  <p>
+    There aren't any chats yet
+  </p>
 <% end %>
-</table>
