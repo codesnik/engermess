@@ -9,6 +9,14 @@ Given /^(.*) participates? in the following chats:$/ do |user_name, chats|
   end
 end
 
+Given 'chats:' do |chats|
+  chats.hashes.each do |attrs|
+    users = attrs.delete("users").split(/, ?/).map{|n| user_by_name(n)}
+    chat = Chat.create!(attrs)
+    chat.users = users
+  end
+end
+
 When /^I delete the (\d+)(?:st|nd|rd|th) chat$/ do |pos|
   within("table tr:nth-child(#{pos.to_i+1})") do
     click_link "Destroy"

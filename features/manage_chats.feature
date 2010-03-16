@@ -58,15 +58,14 @@ Feature: Manage chats
     Then I should see "blablabla, indeed"
 
   Scenario: Display chats
-    Given I participate in the following chats:
-      |subject|
-      |subject 1|
-      |subject 2|
-    And user Vasya registered
-    And Vasya participates in the following chats:
-      |subject|
-      |subject 3|
-      |subject 4|
+    Given user Vasya registered
+    Given user Borya registered
+    Given chats:
+      |subject  | users        |
+      |subject 1| I, Vasya     |
+      |subject 2| Borya, I     |
+      |subject 3| Vasya, Borya |
+      |subject 4| Borya, Vasya |
     And I am on the chat index page
     Then I should see the following chats:
       |Subject|
