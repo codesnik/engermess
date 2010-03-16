@@ -25,4 +25,20 @@ module ChatsHelper
   def link_to_user(user)
     user == current_user ? 'You' : link_to(user.name, user_path(user))
   end
+
+  def unread_counter_for(chat)
+    unread = chat.unread_count
+    read = chat.messages_count
+    if unread == 0
+      if read == 1
+        ""
+      else
+        "(#{read})"
+      end
+    elsif unread == read
+      "(<strong>#{unread}</strong>)"
+    else
+      "(<strong>#{unread}</strong>/#{read})"
+    end.html_safe
+  end
 end

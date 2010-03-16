@@ -13,4 +13,16 @@ class Chat < ActiveRecord::Base
       uc.touch(:parted_at)
     end
   end
+
+  def unread_count
+    read_attribute(:unread_count).to_i
+  end
+
+  # OPTIMIZE
+  def read_by user
+    if uc = user_chats.where(:user_id => user.id).first
+      uc.read_count = messages_count
+      uc.save
+    end
+  end
 end

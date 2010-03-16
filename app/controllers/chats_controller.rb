@@ -16,7 +16,11 @@ class ChatsController < ApplicationController
     @chat = Chat.find(params[:id])
 
     respond_to do |format|
-      format.html # show.html.erb
+      format.html do # show.html.erb
+        # should be done AFTER render, actually
+        # TODO find a hook for that
+        @chat.read_by(current_user)
+      end
     end
   end
 

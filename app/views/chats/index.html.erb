@@ -8,14 +8,15 @@
   <table>
     <tr>
       <th>Participants</th>
-      <th>Subject</th>
       <th></th>
+      <th>Subject</th>
       <th></th>
     </tr>
 
   <% @chats.each do |chat| %>
     <tr>
       <td><%= chat_users(chat) %></td>
+      <td><%= unread_counter_for(chat) %></td>
       <td><%= link_to chat.subject, chat %></td>
       <td><%= link_to chat_digest(chat), chat %></td>
     </tr>
