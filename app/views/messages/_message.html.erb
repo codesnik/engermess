@@ -1,4 +1,7 @@
-<p>
-  <strong><%= link_to_user(message.author) %></strong> (<%=l message.created_at, :format => :short %>):
-  <%= message.body %>
-</p>
+<% div_for message, div_attrs_for_message(message) do %>
+  <p>
+    <%= link_to '#', url_for_message(message) %>
+    <strong><%= link_to_user(message.author) %></strong> (<%=l message.created_at, :format => :short %>)
+  </p>
+  <%= raw(auto_link(textilize(simple_format(message.body)))) %>
+<% end %>

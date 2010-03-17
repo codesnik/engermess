@@ -9,6 +9,7 @@ gem 'sqlite3-ruby', :require => 'sqlite3'
 
 # Use mongrel as the web server
 gem 'mongrel'
+gem 'RedCloth'
 
 # Deploy with Capistrano
 # gem 'capistrano'

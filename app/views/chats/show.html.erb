@@ -19,11 +19,12 @@
 
 <p>
   <b>Messages:</b>
-  <%= render @chat.messages %>
 </p>
+<%= render @chat.messages %>
 
 <p>
   <b>Reply</b>
+</p>
 <% form_for @chat.messages.new, :url => chat_messages_path(@chat) do |f| %>
   <%= f.error_messages %>
 
@@ -33,4 +34,3 @@
     <%= f.submit %>
   </div>
 <% end %>
-</p>

@@ -41,4 +41,8 @@ module ChatsHelper
       "(<strong>#{unread}</strong>/#{read})"
     end.html_safe
   end
+
+  def url_for_message(message)
+    chat_path(message.chat, :anchor => dom_id(message))
+  end
 end
