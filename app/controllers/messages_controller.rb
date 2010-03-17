@@ -4,8 +4,12 @@ class MessagesController < ApplicationController
 
   def create
     @chat = Chat.find(params[:chat_id])
-    @message = current_user.messages.new(params[:message])
-    @message.chat = @chat
+
+    forbid! unless allowed_to_reply? @chat
+
+    @message = @chat.messages.new(params[:message])
+    @message.author = current_user
+
     respond_to do |format|
       if @message.save
         format.html { redirect_to @chat, :notice => 'Message was successfully created.' }
@@ -13,5 +17,11 @@ class MessagesController < ApplicationController
         format.html { render :new }
       end
     end
+  end
+
+  protected
+
+  def allowed_to_reply?(chat)
+    chat.users.include?(current_user)
   end
 end

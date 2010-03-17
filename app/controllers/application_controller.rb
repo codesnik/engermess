@@ -27,4 +27,12 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  include Engermess::Exceptions
+
+  rescue_from Forbidden do |e|
+    respond_to do |format|
+      format.html { redirect_to chats_url, :alert => e.message }
+      format.json { head :forbidden }
+    end
+  end
 end

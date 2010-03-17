@@ -15,6 +15,8 @@ class ChatsController < ApplicationController
   def show
     @chat = Chat.find(params[:id])
 
+    forbid! unless allowed_to_view? @chat
+
     respond_to do |format|
       format.html do # show.html.erb
         # should be done AFTER render, actually
@@ -56,10 +58,20 @@ class ChatsController < ApplicationController
   # DELETE /chats/1
   def destroy
     @chat = Chat.find(params[:id])
+
+    forbid! unless allowed_to_view? @chat
+
     @chat.part_by(current_user)
 
     respond_to do |format|
       format.html { redirect_to(chats_url) }
     end
   end
+
+  protected
+
+  def allowed_to_view?(chat)
+    chat.users.include?(current_user)
+  end
+
 end
